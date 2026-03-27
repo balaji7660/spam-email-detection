@@ -1,9 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import joblib
 import os
 
-app = Flask(__name__)
+# Configure Flask to serve static files from the parent directory
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+app = Flask(__name__, static_folder=root_dir, static_url_path='')
 CORS(app)  # Enable CORS for all routes
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'spam_model.pkl')
@@ -58,5 +60,11 @@ def predict():
         "backend": "Python Scikit-Learn Model"
     })
 
+@app.route('/')
+def index():
+    # Serve the main HTML dashboard
+    return send_from_directory(root_dir, 'index.html')
+
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
