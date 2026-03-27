@@ -3,7 +3,7 @@ services:
     name: defensor-ai
     env: python
     buildCommand: "pip install -r requirements.txt && python backend/train_model.py"
-    startCommand: "gunicorn backend.app:app"
+    startCommand: "python backend/app.py"
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
