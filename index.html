@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Defensor AI - Intelligent Email Security</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Premium Glowing Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container">
+      <header class="header-section fade-in">
+        <div class="branding">
+          <div class="logo-icon"><i class="fa-solid fa-shield-virus"></i></div>
+          <h1 class="logo-text">Defensor <span>AI</span></h1>
+        </div>
+        <p class="subtitle">Next-Generation Neural Spam & Threat Detection</p>
+        <div class="status-indicator">
+          <span class="pulse"></span>
+          <span id="backendStatus">Connecting to ML Engine...</span>
+        </div>
+      </header>
+
+      <main>
+        <!-- Scanner Input -->
+        <section class="glass-panel slide-up delay-1">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-radar"></i> Threat Scanner</h2>
+          </div>
+          <div class="scanner-body">
+            <textarea
+              id="messageInput"
+              placeholder="Paste email content or message here to analyze..."
+              spellcheck="false"
+            ></textarea>
+            <div class="action-bar">
+              <button id="resetBtn" class="btn btn-ghost">
+                <i class="fa-solid fa-rotate-left"></i> Reset
+              </button>
+              <button id="analyzeBtn" class="btn btn-glow">
+                <i class="fa-solid fa-microchip"></i> Analyze Threat
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Dashboard -->
+        <section id="resultsSection" class="glass-panel results-panel slide-up hidden">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-chart-network"></i> Intelligence Report</h2>
+            <div class="badge" id="reportBadge">Analysis Complete</div>
+          </div>
+          
+          <div class="dashboard-grid">
+            <!-- Threat Meter -->
+            <div class="meter-box glass-card">
+              <h3>Risk Probability</h3>
+              <div class="circular-meter">
+                <svg viewBox="0 0 100 100">
+                  <path class="meter-bg" d="M10,90 A40,40 0 1,1 90,90" />
+                  <path class="meter-fill" id="meterFill" d="M10,90 A40,40 0 1,1 90,90" />
+                </svg>
+                <div class="meter-value" id="confidenceValue">0%</div>
+              </div>
+              <div class="threat-level" id="threatLevel">Scanning...</div>
+            </div>
+
+            <!-- Threat Details -->
+            <div class="details-box glass-card">
+              <h3>Classification Details</h3>
+              <ul class="details-list">
+                <li>
+                  <span class="detail-label">Classification:</span>
+                  <span class="detail-value highlight-text" id="classificationType">-</span>
+                </li>
+                <li>
+                  <span class="detail-label">Severity:</span>
+                  <span class="detail-value" id="riskLevel">-</span>
+                </li>
+                <li>
+                  <span class="detail-label">Engine Used:</span>
+                  <span class="detail-value text-muted" id="engineUsed">JavaScript Hybrid</span>
+                </li>
+              </ul>
+              
+              <div class="triggers-section" id="triggerContainer">
+                <span class="detail-label">Psycho-linguistic Triggers:</span>
+                <div class="tags" id="detectedTriggers">
+                  <!-- Triggers Here -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analysis-breakdown glass-card">
+            <h3><i class="fa-solid fa-magnifying-glass-chart"></i> Lexical Analysis</h3>
+            <p class="text-muted text-sm">Highlighted keywords triggering ML scoring parameters.</p>
+            <div id="messagePreview" class="preview-box"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="fade-in delay-3">
+        <p>Defensor AI Engine &copy; 2026 | Python ML + Local NLP Hybrid Architecture</p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="detector.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

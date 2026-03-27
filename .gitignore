@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# Optional: Ignore the model pkl file if it's too large, but usually under 100mb is fine for GitHub.
+# spam_model.pkl
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
